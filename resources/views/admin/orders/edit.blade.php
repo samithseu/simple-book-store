@@ -40,22 +40,14 @@
   </form>
   <h2 style="font-size: 1.4rem; padding-top: 1em">Book List : </h2>
   <div class="book-container">
-      @php
-          for ($i=0; $i < count($books) ; $i++) { 
-            for($j=0; $j < count($order_details); $j++) {
-              if($books[$i]->id == $order_details[$j]->book_id) {
-                echo 
-                '<div class="book">
-                  <input checked type="checkbox" name="choose" class="choose" />
-                  <p class="book-name" data-id="'.$books[$i]->id.'">'.$books[$i]->name.'</p>
-                  <p class="book-price">'.$books[$i]->unit_price.'</p>
-                  <input type="number" title="QTY" name="qty" class="qty" value="'.$order_details[$j]->qty.'" min="1" required />
-                </div>';
-              }
-            }
-            
-          }
-      @endphp
+  @foreach ($order_details as $order_detail)
+    <div class="book">
+      <input checked type="checkbox" name="choose" class="choose" />
+      <p class="book-name" data-id="{{$order_detail->book->id}}">{{$order_detail->book->name}}</p>
+      <p class="book-price">{{$order_detail->book->unit_price}}</p>
+      <input type="number" title="QTY" name="qty" class="qty" value="{{$order_detail->qty}}" min="1" required />
+    </div>
+  @endforeach
   </div>
   <div class="total">
     <p>Selected Item : <span class="selected-item">{{count($order_details)}}</span></p>
