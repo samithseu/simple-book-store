@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="{{url('admin/img/cj.png')}}" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CJ Blog | Login Form</title>
+    <title>CJ Book Store | Login Form</title>
     <style>
         *,
         ::after,
@@ -139,6 +139,7 @@
             border: 1px solid white;
             background-color: rgb(81, 81, 81);
         }
+
         .brand {
             width: 100%;
             height: max-content;
@@ -148,10 +149,12 @@
             flex-direction: column;
             gap: 1em;
         }
+
         .brand img {
             aspect-ratio: 1/1;
             width: 70px;
         }
+
         .brand h2 {
             font-size: 2.5rem;
             font-weight: bold;
